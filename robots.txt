@@ -1,0 +1,11 @@
+# https://king-miro.github.io/robots.txt
+
+User-agent: *
+Allow: /resume
+Allow: /blog
+
+# Sitemap
+Sitemap: https://king-miro.github.io/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 0
