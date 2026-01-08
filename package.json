@@ -2,11 +2,11 @@
   "name": "pdg-playground",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://dogeol.github.io",
+  "homepage": "https://king-miro.github.io/blog",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prebuild": "node scripts/cleanup-temp.mjs",
+    "prebuild": "node scripts/cleanup-te₩mp.mjs",
     "predeploy": "npm run build",
     "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
     "start": "next start",
