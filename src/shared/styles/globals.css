@@ -1,0 +1,60 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-tablet: 768px;
+  --breakpoint-pc: 1280px;
+  --color-primary-50: var(--color-blue-50);
+  --color-primary-100: var(--color-blue-100);
+  --color-primary-200: var(--color-blue-200);
+  --color-primary-300: var(--color-blue-300);
+  --color-primary-400: var(--color-blue-400);
+  --color-primary-500: var(--color-blue-500);
+  --color-primary-600: var(--color-blue-600);
+  --color-primary-700: var(--color-blue-700);
+  --color-primary-800: var(--color-blue-800);
+  --color-primary-900: var(--color-blue-900);
+}
+
+@layer base {
+  html {
+    font-size: 16px;
+  }
+
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+@utility transform-rotate-y-0 {
+  transform: rotateY(0deg);
+}
+
+/* MDX Editor Styles Removed */
+
+@utility transform-rotate-y-90 {
+  transform: rotateY(90deg);
+}
+
+@utility transform-rotate-y-90-back {
+  transform: rotateY(-90deg);
+}
+
+@utility transform-rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+@utility transform-rotate-y-180-back {
+  transform: rotateY(-180deg);
+}
+
+@utility backface-visibility-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
