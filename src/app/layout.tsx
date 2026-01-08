@@ -47,12 +47,12 @@ export const metadata: Metadata = {
     },
     description: '일 잘하고 싶은 개발자의 개인 공간',
     type: 'website',
-    url: 'https://dogeol.github.io',
+    url: 'https://king-miro.github.io',
     siteName: 'Playground',
     locale: 'en_US',
     images: [
       {
-        url: 'https://dogeol.github.io/logo.png',
+        url: 'https://king-miro.github.io/logo.png',
         width: 489,
         height: 489,
         alt: 'PDG Logo',
@@ -66,11 +66,11 @@ export const metadata: Metadata = {
       default: 'Playground',
     },
     description: '일 잘하고 싶은 개발자의 개인 공간',
-    images: ['https://dogeol.github.io/logo.png'],
+    images: ['https://king-miro.github.io/logo.png'],
     creator: '@PDG',
   },
   alternates: {
-    canonical: 'https://dogeol.github.io',
+    canonical: 'https://king-miro.github.io',
   },
   category: 'technology',
 }

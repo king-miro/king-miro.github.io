@@ -1,12 +1,12 @@
 {
-  "name": "pdg-playground",
+  "name": "miro-blog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://king-miro.github.io/blog",
+  "homepage": "https://king-miro.github.io",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "prebuild": "node scripts/cleanup-te₩mp.mjs",
+    "prebuild": "node scripts/cleanup-temp.mjs",
     "predeploy": "npm run build",
     "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
     "start": "next start",
