@@ -11,7 +11,8 @@
     "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles",
     "start": "next start",
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
-    "format:fix": "prettier \"src/**/*.{ts,tsx,js,jsx,json,css,md}\" --write"
+    "format:fix": "prettier \"src/**/*.{ts,tsx,js,jsx,json,css,md}\" --write",
+    "ship": "git add . && git commit -m \"Content update\" && git push && npm run deploy"
   },
   "dependencies": {
     "@codemirror/lang-markdown": "^6.5.0",
