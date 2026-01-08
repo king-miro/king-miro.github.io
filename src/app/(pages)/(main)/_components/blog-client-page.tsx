@@ -1,10 +1,11 @@
 'use client'
 
-import { Suspense, useEffect, useState } from 'react'
-import { useSearchParams, useRouter, usePathname } from 'next/navigation'
+import {Suspense, useEffect, useState} from 'react'
+import {usePathname, useRouter, useSearchParams} from 'next/navigation'
 import Link from 'next/link'
-import { Post } from '@/shared/lib/blog'
-import { motion, AnimatePresence } from 'framer-motion'
+import {Post} from '@/shared/lib/blog'
+import {AnimatePresence, motion} from 'framer-motion'
+import ThemeModeButton from "@/features/theme-toggle";
 
 interface BlogClientPageProps {
   initialPosts: Post[]
@@ -65,7 +66,9 @@ function BlogContent({ initialPosts, categories, tags }: BlogClientPageProps) {
 
   return (
     <div className="container mx-auto max-w-4xl px-4 py-12">
-      <h1 className="mb-8 text-4xl font-bold text-gray-900 dark:text-white">Blog</h1>
+        <h1 className="mb-8 text-4xl font-bold text-gray-900 dark:text-white">Blog
+            <ThemeModeButton/>
+        </h1>
 
       {/* Category Filter */}
       <div className="mb-8 flex flex-wrap gap-2">
@@ -104,7 +107,7 @@ function BlogContent({ initialPosts, categories, tags }: BlogClientPageProps) {
                   <span>•</span>
                   <time>{new Date(post.date).toLocaleDateString()}</time>
                 </div>
-                <Link href={`/blog/${post.slug}`} className="block">
+                <Link href={`/${post.slug}`} className="block">
                   <h2 className="text-2xl font-bold text-gray-900 transition-colors group-hover:text-blue-600 dark:text-white dark:group-hover:text-blue-400">
                     {post.title}
                   </h2>

@@ -162,7 +162,7 @@ ${content}`
         if (result.newSlug) {
           // If renamed, update postId or redirect.
           // Redirecting is safer to ensure state consistency.
-          window.location.href = `/blog/${result.newSlug}`
+          window.location.href = `/${result.newSlug}`
         }
       } else {
         alert(`저장 실패: ${result.message}`)
@@ -249,7 +249,7 @@ ${content}`
   }
 
   const handleBack = () => {
-    const fallbackUrl = slug ? `/blog/${slug}` : '/blog'
+    const fallbackUrl = slug ? `/${slug}` : '/'
     router.replace(fallbackUrl)
   }
 

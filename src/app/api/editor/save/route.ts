@@ -62,8 +62,8 @@ export async function POST(request: NextRequest) {
         const indexPath = path.join(targetPath, 'index.mdx');
         await fs.writeFile(indexPath, content, 'utf-8');
 
-        revalidatePath('/blog');
-        revalidatePath(`/blog/${targetSlug}`);
+        revalidatePath('/');
+        revalidatePath(`/${targetSlug}`);
 
         return NextResponse.json({ success: true, message: '성공적으로 저장되었습니다.', newSlug: targetSlug });
     } catch (error) {
