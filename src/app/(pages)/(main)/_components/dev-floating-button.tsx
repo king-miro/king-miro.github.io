@@ -18,8 +18,8 @@ export default function DevFloatingButton() {
     return null
   }
 
-  // 상세 페이지인지 확인 ( /blog/[slug] )
-  const isDetailPage = pathname.startsWith('/blog/') && pathname.split('/').length > 2
+  // 상세 페이지인지 확인 (루트가 아니고, /editor로 시작하지 않음)
+  const isDetailPage = pathname !== '/' && !pathname.startsWith('/editor')
   const currentSlug = isDetailPage ? pathname.split('/').pop() : null
 
   if (isDetailPage && currentSlug) {

@@ -31,6 +31,9 @@ export function getPostSlugs() {
 /**
  * 특정 슬러그의 포스트 데이터를 가져옵니다.
  */
+/**
+ * 특정 슬러그의 포스트 데이터를 가져옵니다.
+ */
 export function getPostBySlug(slug: string): Post {
   const realSlug = slug.replace(/\.mdx$/, '')
   const fullPath = path.join(postsDirectory, realSlug, 'index.mdx')
@@ -42,13 +45,28 @@ export function getPostBySlug(slug: string): Post {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   const { data, content } = matter(fileContents)
 
+  // Smart Whitelist: 허용된 태그가 아니면 자동으로 이스케이프 처리
+  // 표준 HTML 태그 목록 + 커스텀 컴포넌트(필요 시 추가)
+  const ALLOWED_TAGS = [
+    'a', 'p', 'span', 'div', 'img', 'h[1-6]', 'ul', 'ol', 'li', 'br', 'hr',
+    'code', 'pre', 'blockquote',
+    'table', 'thead', 'tbody', 'tfoot', 'tr', 'th', 'td',
+    'iframe', 'section', 'article', 'header', 'footer', 'nav', 'aside',
+    'details', 'summary', 'figure', 'figcaption',
+    'Callout', // 예시: 커스텀 컴포넌트
+  ].join('|')
+
+  // 정규식: < 뒤에 (허용된 태그 + 공백/슬래시/끝)이 오지 않는 모든 < 를 찾음
+  // (?!/?) -> 태그명 앞에 / 가 있을 수도 있음 (닫는 태그)
+  const safeContent = content.replace(new RegExp(`<(?!\/?(?:${ALLOWED_TAGS})(?:[\\s/>]|$))`, 'ig'), '&lt;')
+
   return {
     slug: realSlug,
     title: data.title || 'Untitled',
     date: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
     category: data.category || 'Uncategorized',
     tags: data.tags || [],
-    content: content,
+    content: safeContent,
     excerpt: data.excerpt || '',
   } as Post
 }
